@@ -40,7 +40,19 @@ public class WikiStepDefinitions {
 
     }
 
+    @Then("User should see {string} in the image header")
+    public void userShouldSeeInTheImageHeader (String arg) throws InterruptedException  {
+
+        String actualImageHeader = wikiSearchPage.imageHeaderAfterSearch.getText();
+        String expectedImageHeader = arg;
+        Thread.sleep(1000);
+        Assert.assertEquals(actualImageHeader, expectedImageHeader);
+
+    }
+
 //    @When("User searches {string} in the Wiki {int} search page")
 //    public void userSearchesInTheWikiSearchPage(String arg0, int arg1) {
 //    }
+
+
 }
